@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #F8FAFC;
+    color: #0F172A;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #00A862, #007A47);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-green {
+    box-shadow: 0 0 30px rgba(0, 168, 98, 0.2);
+  }
+
+  .glow-green-strong {
+    box-shadow: 0 0 50px rgba(0, 168, 98, 0.35);
+  }
+
+  .border-glow {
+    border: 1px solid rgba(0, 168, 98, 0.25);
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(0, 168, 98, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 168, 98, 0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+  .delay-600 { animation-delay: 0.6s; }
+}
