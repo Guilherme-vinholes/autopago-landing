@@ -53,7 +53,7 @@
       <!-- Bottom -->
       <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
         <p class="font-mono text-xs text-white/30">
-          © 2025 Autopago · Onde custo vira resultado
+          © 2026 Autopago · CNPJ 63.643.463/0001-91 · Onde custo vira resultado
         </p>
         <p class="font-mono text-xs text-white/20">
           Todos os direitos reservados
