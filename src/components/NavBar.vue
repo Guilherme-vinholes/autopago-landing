@@ -16,8 +16,8 @@
 
       <!-- Desktop Nav -->
       <div class="hidden md:flex items-center gap-8">
-        <a href="#nos" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200">Nós</a>
         <a href="#autosystem" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200">AutoSystem</a>
+        <a href="#nos" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200">Nós</a>
         <a href="#contato" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200">Contate-nos</a>
       </div>
 
@@ -52,8 +52,8 @@
       v-if="mobileOpen"
       class="md:hidden bg-brand-surface/95 backdrop-blur-md border-t border-white/5 px-6 py-4 flex flex-col gap-4"
     >
-      <a href="#nos" @click="mobileOpen = false" class="text-white/60 hover:text-white text-sm font-body py-2 transition-colors">Nós</a>
       <a href="#autosystem" @click="mobileOpen = false" class="text-white/60 hover:text-white text-sm font-body py-2 transition-colors">AutoSystem</a>
+      <a href="#nos" @click="mobileOpen = false" class="text-white/60 hover:text-white text-sm font-body py-2 transition-colors">Nós</a>
       <a href="#contato" @click="mobileOpen = false" class="text-white/60 hover:text-white text-sm font-body py-2 transition-colors">Contate-nos</a>
       <a
         :href="whatsappUrl"
