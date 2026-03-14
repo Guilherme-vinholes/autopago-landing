@@ -25,9 +25,8 @@
         <!-- Links -->
         <div class="flex flex-col gap-3">
           <span class="font-mono text-xs tracking-widest uppercase mb-1" style="color: #4ae8af">Navegação</span>
-          <a href="#" class="font-body text-sm text-white/50 hover:text-white transition-colors">Início</a>
-          <a href="#nos" class="font-body text-sm text-white/50 hover:text-white transition-colors">Quem somos</a>
-          <a href="#autopago" class="font-body text-sm text-white/50 hover:text-white transition-colors">AutoPago</a>
+          <a href="javascript:void(0)" @click="$emit('navigate', 'system')" class="font-body text-sm text-white/50 hover:text-white transition-colors">Nosso Sistema</a>
+          <a href="#nos" class="font-body text-sm text-white/50 hover:text-white transition-colors">Quem Somos?</a>
           <a href="#contato" class="font-body text-sm text-white/50 hover:text-white transition-colors">Contate-nos</a>
         </div>
 
@@ -65,5 +64,6 @@
 </template>
 
 <script setup>
+defineEmits(['navigate'])
 const whatsappUrl = 'https://wa.me/5514999999999?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Autopago!'
 </script>

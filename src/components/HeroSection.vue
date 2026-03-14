@@ -49,7 +49,7 @@
         style="animation-fill-mode: forwards;"
       >
         <span class="font-mono text-brand-green text-sm flex-shrink-0">ROI →</span>
-        <span class="font-body text-white text-sm">1 cliente já cobre a mensalidade inteira</span>
+        <span class="font-body text-white text-sm">Retorno garantido desde o primeiro mês de uso</span>
       </div>
 
       <!-- CTAs -->

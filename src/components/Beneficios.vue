@@ -3,10 +3,7 @@
     <div class="max-w-5xl mx-auto">
 
       <div class="text-center mb-16">
-        <span class="font-mono text-xs text-brand-green tracking-widest uppercase">AutoPago</span>
-        <h2 class="font-display font-bold text-4xl md:text-5xl text-brand-text mt-3">
-          Tudo que seu negócio <span class="text-gradient">precisa em um lugar</span>
-        </h2>
+        <span class="font-mono text-brand-green tracking-widest uppercase" style="font-size: 28px;">AutoPago</span>
         <p class="font-body text-brand-muted mt-4 max-w-xl mx-auto">
           Sistema de gestão e relacionamento com o cliente — simples, integrado e feito para funcionar desde o primeiro dia.
         </p>
