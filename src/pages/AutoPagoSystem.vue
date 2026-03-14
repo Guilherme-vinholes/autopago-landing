@@ -118,7 +118,7 @@
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="https://wa.me/5514999999999?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Autopago!"
+            href="https://wa.me/5514991373142?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Autopago!"
             target="_blank"
             rel="noopener noreferrer"
             class="font-body font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 hover:brightness-90 text-base"

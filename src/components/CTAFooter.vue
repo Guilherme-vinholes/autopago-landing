@@ -65,5 +65,5 @@
 
 <script setup>
 defineEmits(['navigate'])
-const whatsappUrl = 'https://wa.me/5514999999999?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Autopago!'
+const whatsappUrl = 'https://wa.me/5514991373142?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Autopago!'
 </script>

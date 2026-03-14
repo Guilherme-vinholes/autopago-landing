@@ -42,9 +42,11 @@
         <div>
           <label class="font-body text-sm text-brand-muted mb-1.5 block">WhatsApp</label>
           <input
-            v-model="form.phone"
+            :value="form.phone"
+            @input="onPhoneInput"
             type="tel"
             placeholder="(00) 00000-0000"
+            maxlength="15"
             required
             class="w-full bg-brand-surface-2 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-brand-text placeholder-brand-muted/50 focus:outline-none focus:border-brand-green/50 transition-colors"
           />
@@ -106,6 +108,19 @@ const form = reactive({
   message: '',
 })
 
+const onPhoneInput = (e) => {
+  let v = e.target.value.replace(/\D/g, '').slice(0, 11)
+  if (v.length > 6) {
+    v = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`
+  } else if (v.length > 2) {
+    v = `(${v.slice(0,2)}) ${v.slice(2)}`
+  } else if (v.length > 0) {
+    v = `(${v}`
+  }
+  form.phone = v
+  e.target.value = v
+}
+
 const submit = () => {
   const text = encodeURIComponent(
     `Olá! Vim pela landing page.\n\n` +
@@ -116,6 +131,6 @@ const submit = () => {
     `*Mensagem:* ${form.message || 'Nenhuma mensagem adicional'}`
   )
   submitted.value = true
-  window.open(`https://wa.me/5514999999999?text=${text}`, '_blank')
+  window.open(`https://wa.me/5514991373142?text=${text}`, '_blank')
 }
 </script>
