@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 95">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="110" height="95" fill="#07090D"/>
+
+  <g filter="url(#glow)" fill="#00D07A">
+    <!-- A: hollow delta/triangle shape (evenodd = outer minus inner = thick outline) -->
+    <path fill-rule="evenodd"
+      d="M5,88 L44,7 L77,88 Z
+         M20,75 L44,28 L68,75 Z"/>
+
+    <!-- P: vertical bar -->
+    <rect x="68" y="7" width="9" height="81" rx="2"/>
+
+    <!-- P: bowl (D-curve from top to ~60% height) -->
+    <path d="M77,7 Q108,7 108,33 Q108,59 77,59 L77,50 Q99,50 99,33 Q99,16 77,16 Z"/>
+  </g>
+</svg>
