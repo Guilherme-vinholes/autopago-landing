@@ -28,12 +28,10 @@
 
       <!-- Headline -->
       <h1
-        class="font-display font-extrabold text-5xl md:text-7xl lg:text-8xl leading-none tracking-tight mb-6 opacity-0 animate-fade-up delay-100 text-white"
+        class="font-display font-extrabold text-2xl md:text-3xl lg:text-4xl leading-none tracking-tight mb-6 opacity-0 animate-fade-up delay-100 text-white text-center w-full"
         style="animation-fill-mode: forwards; min-height: 1.2em;"
       >
-        <span>{{ part1 }}</span>
-        <template v-if="showBreak"><br /></template>
-        <span class="text-gradient">{{ part2 }}</span><span class="text-brand-green animate-pulse">|</span>
+        <span>{{ part1 }}</span><span class="text-gradient">{{ part2 }}</span><span class="text-brand-green animate-pulse">|</span>
       </h1>
 
       <!-- Subheadline -->
@@ -97,8 +95,8 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 const whatsappUrl = 'https://wa.me/5514999999999?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Autopago!'
 
-const LINE1 = 'Onde custo'
-const FULL  = 'Onde custo\nvira resultado.'
+const LINE1 = 'Onde custo '
+const FULL  = 'Onde custo vira resultado.'
 
 const displayText = ref('')
 let timer = null
@@ -106,10 +104,9 @@ let timer = null
 const part1 = computed(() => {
   return displayText.value.slice(0, Math.min(displayText.value.length, LINE1.length))
 })
-const showBreak = computed(() => displayText.value.length > LINE1.length)
 const part2 = computed(() => {
-  if (displayText.value.length <= LINE1.length + 1) return ''
-  return displayText.value.slice(LINE1.length + 1)
+  if (displayText.value.length <= LINE1.length) return ''
+  return displayText.value.slice(LINE1.length)
 })
 
 const sleep = (ms) => new Promise(r => { timer = setTimeout(r, ms) })
@@ -119,15 +116,15 @@ const run = async () => {
     // type
     for (let i = 0; i <= FULL.length; i++) {
       displayText.value = FULL.slice(0, i)
-      await sleep(120)
+      await sleep(160)
     }
-    await sleep(2200)
+    await sleep(2500)
     // delete
     for (let i = FULL.length; i >= 0; i--) {
       displayText.value = FULL.slice(0, i)
-      await sleep(65)
+      await sleep(100)
     }
-    await sleep(600)
+    await sleep(800)
   }
 }
 
