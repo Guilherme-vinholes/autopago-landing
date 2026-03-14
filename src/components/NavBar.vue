@@ -2,12 +2,12 @@
   <nav
     :class="[
       'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-      scrolled ? 'bg-black/60 backdrop-blur-md border-b border-white/10' : 'bg-black/60 backdrop-blur-md'
+      scrolled ? 'bg-black/60 backdrop-blur-md' : 'bg-black/60 backdrop-blur-md'
     ]"
   >
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <!-- Logo -->
-      <a href="#" class="flex items-center gap-1 group">
+      <a href="javascript:void(0)" @click.prevent="$emit('navigate', 'home')" class="flex items-center gap-1 group cursor-pointer">
         <img src="/logo_ap2.png" alt="Autopago" class="h-12 w-auto" />
         <span class="font-display font-bold text-2xl text-white">
           Auto<span class="text-brand-green">pago</span>
@@ -16,9 +16,9 @@
 
       <!-- Desktop Nav -->
       <div class="hidden md:flex items-center gap-8">
-        <a href="#autosystem" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200">AutoPago</a>
-        <a href="#nos" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200">Nós</a>
-        <a href="#contato" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200">Contate-nos</a>
+        <a href="javascript:void(0)" @click.prevent="$emit('navigate', 'system')" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200 cursor-pointer">Nosso Sistema</a>
+        <a href="javascript:void(0)" @click.prevent="handleAnchor('#nos')" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200 cursor-pointer">Quem Somos?</a>
+        <a href="javascript:void(0)" @click.prevent="handleAnchor('#contato')" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200 cursor-pointer">Contate-nos</a>
       </div>
 
       <!-- CTA Button -->
@@ -53,9 +53,9 @@
         v-if="mobileOpen"
         class="md:hidden bg-black/90 backdrop-blur-md border-t border-white/10 px-6 py-6 flex flex-col gap-1"
       >
-        <a href="#autosystem" @click="mobileOpen = false" class="text-white/70 hover:text-white text-base font-body py-3 border-b border-white/10 transition-colors">AutoPago</a>
-        <a href="#nos" @click="mobileOpen = false" class="text-white/70 hover:text-white text-base font-body py-3 border-b border-white/10 transition-colors">Nós</a>
-        <a href="#contato" @click="mobileOpen = false" class="text-white/70 hover:text-white text-base font-body py-3 border-b border-white/10 transition-colors">Contate-nos</a>
+        <a href="javascript:void(0)" @click.prevent="$emit('navigate', 'system'); mobileOpen = false" class="text-white/70 hover:text-white text-base font-body py-3 border-b border-white/10 transition-colors">Nosso Sistema</a>
+        <a href="javascript:void(0)" @click.prevent="handleAnchor('#nos'); mobileOpen = false" class="text-white/70 hover:text-white text-base font-body py-3 border-b border-white/10 transition-colors">Quem Somos?</a>
+        <a href="javascript:void(0)" @click.prevent="handleAnchor('#contato'); mobileOpen = false" class="text-white/70 hover:text-white text-base font-body py-3 border-b border-white/10 transition-colors">Contate-nos</a>
         <a
           :href="whatsappUrl"
           target="_blank"
@@ -72,6 +72,24 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+
+const props = defineProps({
+  currentPage: {
+    type: String,
+    default: 'home',
+  },
+})
+
+const emit = defineEmits(['navigate'])
+
+const handleAnchor = (hash) => {
+  if (props.currentPage === 'home') {
+    const el = document.querySelector(hash)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  } else {
+    emit('navigate', 'home', hash)
+  }
+}
 
 const scrolled = ref(false)
 const mobileOpen = ref(false)
