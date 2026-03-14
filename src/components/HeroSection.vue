@@ -19,24 +19,24 @@
 
       <!-- Badge -->
       <div
-        class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8 opacity-0 animate-fade-up"
+        class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 mb-6 opacity-0 animate-fade-up"
         style="animation-fill-mode: forwards;"
       >
-        <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
-        <span class="font-mono text-xs text-white/70 tracking-widest uppercase">Sistemas · SaaS · Soluções Empresariais</span>
+        <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse flex-shrink-0"></span>
+        <span class="font-mono text-xs text-white/70 tracking-wider uppercase">Sistemas · SaaS · Soluções Empresariais</span>
       </div>
 
       <!-- Headline -->
       <h1
-        class="font-display font-extrabold text-2xl md:text-3xl lg:text-4xl leading-none tracking-tight mb-6 opacity-0 animate-fade-up delay-100 text-white text-center w-full"
-        style="animation-fill-mode: forwards; min-height: 1.2em;"
+        class="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl leading-tight tracking-tight mb-6 opacity-0 animate-fade-up delay-100 text-white text-center w-full"
+        style="animation-fill-mode: forwards; min-height: 1.4em;"
       >
         <span>{{ part1 }}</span><span class="text-gradient">{{ part2 }}</span><span class="text-brand-green animate-pulse">|</span>
       </h1>
 
       <!-- Subheadline -->
       <p
-        class="font-body text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-4 leading-relaxed opacity-0 animate-fade-up delay-200"
+        class="font-body text-base md:text-xl text-white/70 max-w-2xl mx-auto mb-4 leading-relaxed opacity-0 animate-fade-up delay-200 px-2"
         style="animation-fill-mode: forwards;"
       >
         Tecnologia pensada para o seu negócio crescer —
@@ -45,23 +45,23 @@
 
       <!-- ROI highlight -->
       <div
-        class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-5 py-3 mb-10 opacity-0 animate-fade-up delay-300"
+        class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-4 py-2.5 mb-8 opacity-0 animate-fade-up delay-300"
         style="animation-fill-mode: forwards;"
       >
-        <span class="font-mono text-brand-green text-sm">ROI →</span>
+        <span class="font-mono text-brand-green text-sm flex-shrink-0">ROI →</span>
         <span class="font-body text-white text-sm">1 cliente já cobre a mensalidade inteira</span>
       </div>
 
       <!-- CTAs -->
       <div
-        class="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-up delay-400"
+        class="flex flex-col sm:flex-row items-center justify-center gap-3 opacity-0 animate-fade-up delay-400 w-full px-4 sm:px-0"
         style="animation-fill-mode: forwards;"
       >
         <a
           :href="whatsappUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="font-body font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 hover:brightness-90 text-base"
+          class="w-full sm:w-auto font-body font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 hover:brightness-90 text-base text-center"
           style="background-color: #4ae8af; color: #07090D;"
         >
           Conheça o AutoSystem
@@ -69,7 +69,7 @@
 
         <a
           href="#como-funciona"
-          class="flex items-center gap-2 text-white/60 hover:text-white font-body text-sm px-6 py-4 rounded-2xl border border-white/20 hover:border-white/40 transition-all duration-200"
+          class="w-full sm:w-auto flex items-center justify-center gap-2 text-white/60 hover:text-white font-body text-sm px-6 py-4 rounded-2xl border border-white/20 hover:border-white/40 transition-all duration-200"
         >
           Ver como funciona
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
