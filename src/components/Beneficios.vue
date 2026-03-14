@@ -3,12 +3,12 @@
     <div class="max-w-5xl mx-auto">
 
       <div class="text-center mb-16">
-        <span class="font-mono text-xs text-brand-green tracking-widest uppercase">Benefícios</span>
+        <span class="font-mono text-xs text-brand-green tracking-widest uppercase">AutoPago</span>
         <h2 class="font-display font-bold text-4xl md:text-5xl text-brand-text mt-3">
-          Tecnologia que <span class="text-gradient">justifica o investimento</span>
+          Tudo que seu negócio <span class="text-gradient">precisa em um lugar</span>
         </h2>
         <p class="font-body text-brand-muted mt-4 max-w-xl mx-auto">
-          Cada funcionalidade foi pensada para gerar valor real, não para impressionar em demo.
+          Sistema de gestão e relacionamento com o cliente — simples, integrado e feito para funcionar desde o primeiro dia.
         </p>
       </div>
 
@@ -39,37 +39,37 @@
 <script setup>
 const benefits = [
   {
-    icon: '💰',
-    title: 'ROI Imediato',
-    description: 'Um único cliente do seu contratante já cobre a mensalidade do sistema. Risco zero na decisão de contratar.',
-    tag: 'plano_mensal → R$ 200/mês',
+    icon: '📦',
+    title: 'Controle de Estoque',
+    description: 'Acompanhe entradas, saídas e níveis de estoque em tempo real. Evite rupturas e desperdícios com visibilidade total do seu inventário.',
+    tag: 'estoque → em tempo real',
     highlight: true,
   },
   {
-    icon: '📊',
-    title: 'Escalável por natureza',
-    description: 'Quanto mais o negócio do cliente cresce, mais o sistema se justifica. Cresce junto com você.',
+    icon: '💰',
+    title: 'Controle Financeiro',
+    description: 'Receitas, despesas e fluxo de caixa centralizados. Tenha o panorama financeiro do seu negócio sempre à mão, sem planilhas.',
   },
   {
-    icon: '🔒',
-    title: 'Cobrança transparente',
-    description: 'Sem surpresas na fatura. O cliente entende o valor antes mesmo de assinar o contrato.',
+    icon: '👥',
+    title: 'Cadastro de Clientes',
+    description: 'Histórico completo de cada cliente — compras, preferências e contatos — tudo organizado para um atendimento mais eficiente.',
   },
   {
-    icon: '🧩',
-    title: '6 módulos integrados',
-    description: 'Gestão, financeiro, clientes, automações e mais — tudo no mesmo sistema, sem integrações complexas.',
-    tag: 'status: ativo',
+    icon: '⭐',
+    title: 'Fidelidade com o Cliente',
+    description: 'Programa de fidelidade integrado ao cadastro. Recompense clientes frequentes e aumente o ticket médio de forma automática.',
+    tag: 'fidelidade → ativo',
   },
   {
-    icon: '🚀',
-    title: 'Onboarding rápido',
-    description: 'Seu sistema no ar em dias, não meses. Suporte dedicado na configuração inicial.',
+    icon: '🔔',
+    title: 'Lembretes Automatizados',
+    description: 'Notificações automáticas para clientes e equipe — cobranças, retornos, aniversários e muito mais. Menos esquecimento, mais resultado.',
   },
   {
-    icon: '🤖',
-    title: 'Automações inteligentes',
-    description: 'Reduza tarefas manuais com automações que trabalham enquanto você dorme.',
+    icon: '🤝',
+    title: 'CRM Integrado',
+    description: 'Gestão de relacionamento com o cliente dentro do próprio sistema. Sem ferramentas externas, sem complicação.',
   },
 ]
 </script>

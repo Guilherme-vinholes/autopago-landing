@@ -16,7 +16,7 @@
 
       <!-- Desktop Nav -->
       <div class="hidden md:flex items-center gap-8">
-        <a href="#autosystem" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200">AutoSystem</a>
+        <a href="#autosystem" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200">AutoPago</a>
         <a href="#nos" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200">Nós</a>
         <a href="#contato" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200">Contate-nos</a>
       </div>
@@ -53,7 +53,7 @@
         v-if="mobileOpen"
         class="md:hidden bg-black/90 backdrop-blur-md border-t border-white/10 px-6 py-6 flex flex-col gap-1"
       >
-        <a href="#autosystem" @click="mobileOpen = false" class="text-white/70 hover:text-white text-base font-body py-3 border-b border-white/10 transition-colors">AutoSystem</a>
+        <a href="#autosystem" @click="mobileOpen = false" class="text-white/70 hover:text-white text-base font-body py-3 border-b border-white/10 transition-colors">AutoPago</a>
         <a href="#nos" @click="mobileOpen = false" class="text-white/70 hover:text-white text-base font-body py-3 border-b border-white/10 transition-colors">Nós</a>
         <a href="#contato" @click="mobileOpen = false" class="text-white/70 hover:text-white text-base font-body py-3 border-b border-white/10 transition-colors">Contate-nos</a>
         <a
