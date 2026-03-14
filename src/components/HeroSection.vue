@@ -64,7 +64,7 @@
           class="w-full sm:w-auto font-body font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 hover:brightness-90 text-base text-center"
           style="background-color: #4ae8af; color: #07090D;"
         >
-          Conheça o AutoSystem
+          Conheça o AutoPago
         </a>
 
         <a

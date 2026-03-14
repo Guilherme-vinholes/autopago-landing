@@ -1,71 +1,121 @@
 <template>
-  <section id="faq" class="py-24 px-6 bg-brand-surface/30">
-    <div class="max-w-3xl mx-auto">
+  <section id="contato" class="py-24 px-6">
+    <div class="max-w-2xl mx-auto">
 
-      <div class="text-center mb-16">
-        <span class="font-mono text-xs text-brand-green tracking-widest uppercase">FAQ</span>
+      <div class="text-center mb-12">
+        <span class="font-mono text-xs text-brand-green tracking-widest uppercase">Contate-nos</span>
         <h2 class="font-display font-bold text-4xl md:text-5xl text-brand-text mt-3">
-          Perguntas frequentes
+          Fale com a <span class="text-gradient">nossa equipe</span>
         </h2>
+        <p class="font-body text-brand-muted mt-4 max-w-md mx-auto">
+          Preencha o formulário e entraremos em contato para entender como o AutoPago pode ajudar o seu negócio.
+        </p>
       </div>
 
-      <div class="space-y-3">
-        <div
-          v-for="(item, i) in faqs"
-          :key="i"
-          class="rounded-2xl bg-brand-surface border-glow overflow-hidden"
-        >
-          <button
-            @click="toggle(i)"
-            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-white/5 transition-colors"
-          >
-            <span class="font-body font-medium text-brand-text text-sm md:text-base">{{ item.question }}</span>
-            <svg
-              :class="['w-4 h-4 text-brand-green flex-shrink-0 ml-4 transition-transform duration-200', open === i ? 'rotate-180' : '']"
-              fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-          <div v-if="open === i" class="px-6 pb-5">
-            <p class="font-body text-brand-muted text-sm leading-relaxed">{{ item.answer }}</p>
+      <!-- Form -->
+      <form
+        @submit.prevent="submit"
+        class="bg-brand-surface border-glow rounded-2xl p-8 md:p-10 space-y-5"
+      >
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label class="font-body text-sm text-brand-muted mb-1.5 block">Nome</label>
+            <input
+              v-model="form.name"
+              type="text"
+              placeholder="Seu nome"
+              required
+              class="w-full bg-brand-surface-2 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-brand-text placeholder-brand-muted/50 focus:outline-none focus:border-brand-green/50 transition-colors"
+            />
+          </div>
+          <div>
+            <label class="font-body text-sm text-brand-muted mb-1.5 block">Empresa</label>
+            <input
+              v-model="form.company"
+              type="text"
+              placeholder="Nome da empresa"
+              class="w-full bg-brand-surface-2 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-brand-text placeholder-brand-muted/50 focus:outline-none focus:border-brand-green/50 transition-colors"
+            />
           </div>
         </div>
-      </div>
+
+        <div>
+          <label class="font-body text-sm text-brand-muted mb-1.5 block">WhatsApp</label>
+          <input
+            v-model="form.phone"
+            type="tel"
+            placeholder="(00) 00000-0000"
+            required
+            class="w-full bg-brand-surface-2 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-brand-text placeholder-brand-muted/50 focus:outline-none focus:border-brand-green/50 transition-colors"
+          />
+        </div>
+
+        <div>
+          <label class="font-body text-sm text-brand-muted mb-1.5 block">Segmento do negócio</label>
+          <select
+            v-model="form.segment"
+            class="w-full bg-brand-surface-2 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-brand-text focus:outline-none focus:border-brand-green/50 transition-colors appearance-none"
+          >
+            <option value="" disabled selected class="text-brand-muted">Selecione seu segmento</option>
+            <option value="varejo">Varejo / Loja</option>
+            <option value="servicos">Prestação de Serviços</option>
+            <option value="alimentacao">Alimentação</option>
+            <option value="saude">Saúde e Estética</option>
+            <option value="educacao">Educação</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="font-body text-sm text-brand-muted mb-1.5 block">Mensagem <span class="text-brand-muted/50">(opcional)</span></label>
+          <textarea
+            v-model="form.message"
+            rows="3"
+            placeholder="Conte um pouco sobre o seu negócio..."
+            class="w-full bg-brand-surface-2 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-brand-text placeholder-brand-muted/50 focus:outline-none focus:border-brand-green/50 transition-colors resize-none"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full font-body font-semibold py-4 rounded-xl transition-all duration-300 hover:brightness-90 hover:scale-[1.02] text-base"
+          style="background-color: #4ae8af; color: #07090D;"
+        >
+          {{ submitted ? 'Mensagem enviada!' : 'Quero conhecer o AutoPago' }}
+        </button>
+
+        <p v-if="submitted" class="text-center font-body text-sm text-brand-green">
+          Recebemos seu contato. Nossa equipe vai falar com você em breve!
+        </p>
+      </form>
 
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 
-const open = ref(null)
+const submitted = ref(false)
 
-const toggle = (i) => {
-  open.value = open.value === i ? null : i
+const form = reactive({
+  name: '',
+  company: '',
+  phone: '',
+  segment: '',
+  message: '',
+})
+
+const submit = () => {
+  const text = encodeURIComponent(
+    `Olá! Vim pela landing page.\n\n` +
+    `*Nome:* ${form.name}\n` +
+    `*Empresa:* ${form.company || 'Não informado'}\n` +
+    `*WhatsApp:* ${form.phone}\n` +
+    `*Segmento:* ${form.segment || 'Não informado'}\n` +
+    `*Mensagem:* ${form.message || 'Nenhuma mensagem adicional'}`
+  )
+  submitted.value = true
+  window.open(`https://wa.me/5514999999999?text=${text}`, '_blank')
 }
-
-const faqs = [
-  {
-    question: 'Como funciona o modelo de ROI imediato?',
-    answer: 'Simples: nosso plano custa R$ 200/mês. Se você usa o Autopago para fechar um único cliente, esse valor já cobre a mensalidade inteira. Tudo o que vier depois é retorno líquido para o seu negócio.',
-  },
-  {
-    question: 'Preciso de conhecimento técnico para usar?',
-    answer: 'Não. O Autopago foi desenvolvido para ser intuitivo. Nossa equipe configura tudo junto com você no onboarding e oferece suporte contínuo via WhatsApp.',
-  },
-  {
-    question: 'Posso cancelar a qualquer momento?',
-    answer: 'Sim. Não trabalhamos com fidelidade ou multas. Se o sistema não fizer sentido para o seu negócio, você cancela quando quiser.',
-  },
-  {
-    question: 'O que são os 6 módulos incluídos?',
-    answer: 'Os módulos cobrem as principais necessidades de um negócio: gestão de clientes, financeiro, cobranças, automações, relatórios e comunicação. Cada módulo é ativado conforme sua necessidade.',
-  },
-  {
-    question: 'O sistema funciona para qual tipo de empresa?',
-    answer: 'O Autopago foi pensado para pequenas e médias empresas, MEIs e prestadores de serviço que precisam de tecnologia que realmente funcione — sem complexidade desnecessária.',
-  },
-]
 </script>
