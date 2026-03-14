@@ -19,7 +19,7 @@
         <span class="font-mono text-xs text-brand-green tracking-widest uppercase">Quem confia na AutoPago</span>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="flex justify-center max-w-sm mx-auto">
         <div
           v-for="(client, i) in clients"
           :key="i"
@@ -67,22 +67,6 @@ const clients = [
     quote: 'O AutoPago simplificou toda a nossa gestão. Hoje temos controle real do negócio sem complicação.',
     logo: 'https://limatecms.com/img/icon.5717a9e4.svg',
     url: 'https://limatecms.com',
-  },
-  {
-    name: 'Cliente 2',
-    initials: 'C2',
-    segment: 'Segmento',
-    quote: 'Depoimento breve sobre como o AutoPago ajudou o negócio a crescer.',
-    logo: '',
-    url: 'LINK',
-  },
-  {
-    name: 'Cliente 3',
-    initials: 'C3',
-    segment: 'Segmento',
-    quote: 'Depoimento breve sobre como o AutoPago ajudou o negócio a crescer.',
-    logo: '',
-    url: 'LINK',
   },
 ]
 </script>
