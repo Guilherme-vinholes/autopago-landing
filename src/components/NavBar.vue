@@ -48,22 +48,25 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div
-      v-if="mobileOpen"
-      class="md:hidden bg-brand-surface/95 backdrop-blur-md border-t border-white/5 px-6 py-4 flex flex-col gap-4"
-    >
-      <a href="#autosystem" @click="mobileOpen = false" class="text-white/60 hover:text-white text-sm font-body py-2 transition-colors">AutoSystem</a>
-      <a href="#nos" @click="mobileOpen = false" class="text-white/60 hover:text-white text-sm font-body py-2 transition-colors">Nós</a>
-      <a href="#contato" @click="mobileOpen = false" class="text-white/60 hover:text-white text-sm font-body py-2 transition-colors">Contate-nos</a>
-      <a
-        :href="whatsappUrl"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex items-center justify-center gap-2 bg-brand-green text-brand-black font-semibold text-sm px-5 py-3 rounded-xl mt-2"
+    <transition name="mobile-menu">
+      <div
+        v-if="mobileOpen"
+        class="md:hidden bg-black/90 backdrop-blur-md border-t border-white/10 px-6 py-6 flex flex-col gap-1"
       >
-        Falar no WhatsApp
-      </a>
-    </div>
+        <a href="#autosystem" @click="mobileOpen = false" class="text-white/70 hover:text-white text-base font-body py-3 border-b border-white/10 transition-colors">AutoSystem</a>
+        <a href="#nos" @click="mobileOpen = false" class="text-white/70 hover:text-white text-base font-body py-3 border-b border-white/10 transition-colors">Nós</a>
+        <a href="#contato" @click="mobileOpen = false" class="text-white/70 hover:text-white text-base font-body py-3 border-b border-white/10 transition-colors">Contate-nos</a>
+        <a
+          :href="whatsappUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center font-body font-semibold text-sm px-5 py-3.5 rounded-xl mt-4 transition-all hover:brightness-90"
+          style="background-color: #4ae8af; color: #07090D;"
+        >
+          Fale com especialista
+        </a>
+      </div>
+    </transition>
   </nav>
 </template>
 
@@ -81,3 +84,15 @@ const handleScroll = () => {
 onMounted(() => window.addEventListener('scroll', handleScroll))
 onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 </script>
+
+<style scoped>
+.mobile-menu-enter-active,
+.mobile-menu-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.mobile-menu-enter-from,
+.mobile-menu-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+</style>
