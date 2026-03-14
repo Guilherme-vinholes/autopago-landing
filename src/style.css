@@ -11,10 +11,11 @@
 
   html {
     scroll-behavior: smooth;
+    background-color: #07090D;
   }
 
   body {
-    background-color: #F8FAFC;
+    background-color: #07090D;
     color: #0F172A;
     font-family: 'DM Sans', sans-serif;
     -webkit-font-smoothing: antialiased;

@@ -29,7 +29,7 @@
               <div class="w-24 h-24 rounded-2xl bg-brand-surface border-glow flex items-center justify-center transition-all duration-300 group-hover:glow-green group-hover:border-brand-green/40 z-10 relative">
                 <span class="text-3xl">{{ step.icon }}</span>
               </div>
-              <div class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-brand-green flex items-center justify-center">
+              <div class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-brand-green flex items-center justify-center z-20">
                 <span class="font-mono text-xs font-bold text-brand-black">{{ i + 1 }}</span>
               </div>
             </div>
