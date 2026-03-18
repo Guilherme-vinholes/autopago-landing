@@ -127,7 +127,7 @@
             Fale com especialista
           </a>
           <button
-            @click="$emit('navigate', 'home')"
+            @click="router.push('/')"
             class="flex items-center gap-2 text-brand-muted hover:text-brand-text font-body text-sm px-6 py-4 rounded-2xl border border-brand-green/20 hover:border-brand-green/40 transition-all duration-200"
           >
             ← Voltar para o início
@@ -139,7 +139,8 @@
 </template>
 
 <script setup>
-defineEmits(['navigate'])
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
 const modules = [
   {

@@ -1,13 +1,8 @@
 <template>
-  <nav
-    :class="[
-      'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-      scrolled ? 'bg-black/60 backdrop-blur-md' : 'bg-black/60 backdrop-blur-md'
-    ]"
-  >
+  <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/60 backdrop-blur-md">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <!-- Logo -->
-      <a href="javascript:void(0)" @click.prevent="$emit('navigate', 'home')" class="flex items-center gap-1 group cursor-pointer">
+      <a href="javascript:void(0)" @click.prevent="router.push('/')" class="flex items-center gap-1 group cursor-pointer">
         <img src="/logo_ap2.png" alt="Autopago" class="h-12 w-auto" />
         <span class="font-display font-bold text-2xl text-white">
           Auto<span class="text-brand-green">pago</span>
@@ -16,7 +11,7 @@
 
       <!-- Desktop Nav -->
       <div class="hidden md:flex items-center gap-8">
-        <a href="javascript:void(0)" @click.prevent="$emit('navigate', 'system')" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200 cursor-pointer">Nosso Sistema</a>
+        <a href="javascript:void(0)" @click.prevent="router.push('/NossoSistema')" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200 cursor-pointer">Nosso Sistema</a>
         <a href="javascript:void(0)" @click.prevent="handleAnchor('#nos')" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200 cursor-pointer">Quem Somos?</a>
         <a href="javascript:void(0)" @click.prevent="handleAnchor('#contato')" class="text-white/60 hover:text-white text-sm font-body transition-colors duration-200 cursor-pointer">Contate-nos</a>
       </div>
@@ -53,7 +48,7 @@
         v-if="mobileOpen"
         class="md:hidden bg-black/90 backdrop-blur-md border-t border-white/10 px-6 py-6 flex flex-col gap-1"
       >
-        <a href="javascript:void(0)" @click.prevent="$emit('navigate', 'system'); mobileOpen = false" class="text-white/70 hover:text-white text-base font-body py-3 border-b border-white/10 transition-colors">Nosso Sistema</a>
+        <a href="javascript:void(0)" @click.prevent="router.push('/NossoSistema'); mobileOpen = false" class="text-white/70 hover:text-white text-base font-body py-3 border-b border-white/10 transition-colors">Nosso Sistema</a>
         <a href="javascript:void(0)" @click.prevent="handleAnchor('#nos'); mobileOpen = false" class="text-white/70 hover:text-white text-base font-body py-3 border-b border-white/10 transition-colors">Quem Somos?</a>
         <a href="javascript:void(0)" @click.prevent="handleAnchor('#contato'); mobileOpen = false" class="text-white/70 hover:text-white text-base font-body py-3 border-b border-white/10 transition-colors">Contate-nos</a>
         <a
@@ -71,33 +66,30 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
-const props = defineProps({
-  currentPage: {
-    type: String,
-    default: 'home',
-  },
-})
+const router = useRouter()
+const route = useRoute()
 
-const emit = defineEmits(['navigate'])
-
-const handleAnchor = (hash) => {
-  if (props.currentPage === 'home') {
+const handleAnchor = async (hash) => {
+  if (route.path === '/') {
     const el = document.querySelector(hash)
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   } else {
-    emit('navigate', 'home', hash)
+    await router.push('/')
+    await nextTick()
+    setTimeout(() => {
+      const el = document.querySelector(hash)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }, 100)
   }
 }
 
-const scrolled = ref(false)
 const mobileOpen = ref(false)
 const whatsappUrl = 'https://wa.me/5514991373142?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Autopago!'
 
-const handleScroll = () => {
-  scrolled.value = window.scrollY > 20
-}
+const handleScroll = () => {}
 
 onMounted(() => window.addEventListener('scroll', handleScroll))
 onUnmounted(() => window.removeEventListener('scroll', handleScroll))
